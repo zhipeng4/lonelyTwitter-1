@@ -1,5 +1,6 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,6 +14,7 @@ public abstract class Tweet implements Tweetable {
 
     public Tweet(String message) {
         this.message = message;
+        this.date = new Date();
     }
 
     public Tweet(String message, Date date) {
@@ -21,21 +23,25 @@ public abstract class Tweet implements Tweetable {
     }
 
     public Date getDate() {
+
         return date;
     }
 
     public void setDate(Date date) {
+
         this.date = date;
     }
 
     public String getMessage() {
+
         return this.message;
     }
 
     public void setMessage(String message) throws TweetTooLongException {
         if (message.length() > 140) {
             throw new TweetTooLongException();
-        } else {
+        }
+        else {
             this.message = message;
         }
     }
